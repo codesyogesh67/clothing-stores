@@ -197,12 +197,12 @@ display:none;
 export const DrawerBox = styled(MUIDrawer)`
 
   & .MuiPaper-root {
-  width: 100%;
+  width: 50%;
     height: 100vh;
     display: flex;
     padding-top: 20px;
     align-items: center;
-    transition:width .1s linear;
+    transition:width .5s linear;
   }
   & .MuiList-root {
     width: 100%;

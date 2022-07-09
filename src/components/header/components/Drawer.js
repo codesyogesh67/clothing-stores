@@ -40,9 +40,9 @@ const DrawerLinks = (props) => {
     setShow(!show)
   }
 
-  const moveToProductPage = (category, header) => {
+  const moveToProductPage = (header) => {
     dispatch(updateOpenDrawer(false))
-    dispatch(updateLink(category, header))
+    dispatch(updateLink(header))
 
   }
 
@@ -61,11 +61,11 @@ const DrawerLinks = (props) => {
       </ListItemButton>
       <Collapse in={show} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          {links?.map(each => (
-            <Link to={`/category/${header}`} onClick={() => moveToProductPage({ category: each.title, header })}>
+          {links[0]?.categories.map(each => (
+            <Link to={`/category/${each}`} onClick={() => moveToProductPage({ header: each })}>
 
               <ListItemButton >
-                <ListItemText primary={each.title} sx={{
+                <ListItemText primary={each} sx={{
                   color: "#6f7070", '& .css-10hburv-MuiTypography-root': {
                     fontSize: "0.9rem"
                   }
@@ -111,6 +111,7 @@ export default function Drawer() {
 
 
       {categoryLinks?.map((item, index) => {
+
         const { header, section } = item
         return (
           <DrawerLinks key={header} header={header} links={section} />

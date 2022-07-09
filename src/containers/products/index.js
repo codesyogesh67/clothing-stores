@@ -6,6 +6,7 @@ import { motion } from "framer-motion/dist/framer-motion"
 import Message from "../../components/message/Message";
 import { useSelector } from "react-redux";
 import { selectMessage } from "../../features/extras/extrasSlice";
+import Footer from "../footer";
 
 
 

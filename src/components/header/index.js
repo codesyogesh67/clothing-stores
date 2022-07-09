@@ -44,6 +44,7 @@ function Header() {
 
         <ModalBox open={openModalBox} setOpen={setOpenModalBox} />
         {openDrawer && <Drawer />}
+        <Drawer />
       </Wrapper>
       <Navbar />
 

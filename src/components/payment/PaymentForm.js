@@ -72,7 +72,7 @@ function PaymentForm() {
           setOpen(true);
           setError("Sorry. We couldn't proceed your payment.");
         }
-      });
+      }).catch(error => console.log("error"))
   };
 
   const handleClose = () => {

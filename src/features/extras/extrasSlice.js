@@ -15,7 +15,7 @@ export const extrasSlice = createSlice({
     reducers: {
 
         updateFilterData: (state, action) => {
-            state.fitlerData = action.payload;
+            state.filterData = action.payload;
         },
         updateOpenModal: (state, action) => {
             state.openModal = action.payload;

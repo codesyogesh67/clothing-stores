@@ -29,22 +29,31 @@ function Sidebar() {
 
     const [links, setLinks] = useState([]);
 
-
+    console.log("link headedr", linkHeader)
+    console.log("categorylinks", categoryLinks)
     useEffect(() => {
+        console.log("running useEffect")
         if (categoryLinks) {
             categoryLinks.filter(each => {
+                console.log("each.header", each.header)
 
                 if (each.header === linkHeader) {
 
                     setLinks(each.section)
 
                 }
+                else if (categoryLinks[0].section[0].categories.includes(linkHeader)) {
+                    setLinks(categoryLinks[0].section)
+                }
+                else {
+                    setLinks(categoryLinks[1].section)
+                }
             })
         }
 
     }, [categoryLinks, linkHeader]);
 
-
+    console.log("links", links)
 
 
 

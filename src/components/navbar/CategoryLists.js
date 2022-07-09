@@ -14,7 +14,7 @@ import { updateLink } from "../../features/links/linksSlice";
 
 function CategoryLists(props) {
   const dispatch = useDispatch();
-  console.log("props", props.data)
+
 
   return (
     <CategoryListContainer>

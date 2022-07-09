@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Wrapper,
@@ -20,23 +20,20 @@ import { Link } from "react-router-dom";
 import Button from "../button";
 import { selectMessage } from "../../../features/extras/extrasSlice";
 import Message from "../../message/Message";
+import Footer from "../../../containers/footer";
 
 function Product() {
   const productInfo = useSelector(selectProductInfo);
-  const {
+  console.log("productInfo", productInfo)
 
-    data: {
-      name,
-      price,
-      category,
-      subcategory,
-      imageUrl,
-      defaultColor,
-    } } = productInfo;
+  const { id, data: { name, price, category, subcategory, imageUrl, defaultColor } } = productInfo;
+
   const colorList = ["white", "black", "red", "green", "purple"];
   const sizeList = ["XS", "S", "Md", "L", "XL"];
 
   const message = useSelector(selectMessage)
+
+
 
 
 
@@ -84,6 +81,7 @@ function Product() {
 
           <Button name="Add to Cart" />
         </Info>
+
       </Wrapper>
 
     </Container>

@@ -4,6 +4,7 @@ import { Container } from "./HomeElements";
 import DealProduct from "../../components/home/DealProduct";
 import FeaturedProducts from "../../components/home/FeaturedProducts";
 import { motion } from "framer-motion/dist/framer-motion"
+import Footer from "../footer";
 
 function Home() {
   return (

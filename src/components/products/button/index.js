@@ -12,7 +12,7 @@ function Button(props) {
   const user = useSelector(selectUser)
 
   const addToCart = (obj) => {
-    console.log("hello....")
+
     if (user) {
       dispatch(pushToCart(obj));
 

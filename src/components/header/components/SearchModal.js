@@ -24,7 +24,7 @@ import {
 } from "../../../features/extras/extrasSlice";
 import { Modal } from "@mui/material";
 import { Link } from "react-router-dom";
-import { selectProducts } from "../../../features/products/productsSlice";
+import { selectProducts, updateProductInfo } from "../../../features/products/productsSlice";
 
 function SearchModal() {
   const [filterData, setFilterData] = useState([]);
@@ -37,10 +37,12 @@ function SearchModal() {
   const dispatch = useDispatch();
 
 
-  const handleClose = () => {
-    dispatch(updateOpenModal(false));
+  const handleClose = (data) => {
+    dispatch(updateProductInfo(data))
+    dispatch(updateOpenModal(false))
     setFilterData([]);
     setWordEntered("");
+
   };
 
   const handleChange = (e) => {
@@ -62,6 +64,7 @@ function SearchModal() {
     setWordEntered("");
     dispatch(updateOpenModal(false));
   };
+  console.log("fitler data", filterData)
 
   return (
 
@@ -92,21 +95,25 @@ function SearchModal() {
 
 
         <SearchOptions>
-          {filterData?.slice(0, 10).map(({ data }, index) => (
-            <Link key={index} to={`/product/${data.name}`} onClick={handleClose}>
-              <List>
-                <ListItem disablePadding>
+          {filterData?.slice(0, 10).map((obj) => {
+            const { id, data: { name } } = obj
+            return (
+              <Link key={id} to={`/product/${name}`} onClick={() => handleClose(obj)}>
+                <List>
+                  <ListItem disablePadding>
 
-                  <ListItemButton>
+                    <ListItemButton>
 
-                    <ListItemText primary={data.name} />
+                      <ListItemText primary={name} />
 
-                  </ListItemButton>
+                    </ListItemButton>
 
-                </ListItem>
-              </List>
-            </Link>
-          ))}
+                  </ListItem>
+                </List>
+              </Link>
+            )
+          })}
+
         </SearchOptions>
       </ModalContainer>
     </Modal>

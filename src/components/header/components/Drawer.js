@@ -100,7 +100,7 @@ export default function Drawer() {
 
   return (
 
-    <DrawerBox open={open}>
+    <DrawerBox open={open} onClose={() => dispatch(updateOpenDrawer(false))}>
       <DrawerHeader>
         <IconButton onClick={() => dispatch(updateOpenDrawer(false))}>
 

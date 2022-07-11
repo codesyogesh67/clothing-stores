@@ -25,7 +25,7 @@ function AnimatedRoutes() {
                 <Route exact path="/" element={<Home />} />
 
                 <Route path="/cart" element={
-                    <PrivateRoute> <Cart /> </PrivateRoute >} />
+                    <PrivateRoute> <Cart /> </PrivateRoute>} />
                 <Route path="/signin" element={!user ? <SignIn /> : <Home />} />
                 <Route path="/signup" element={!user ? <SignUp /> : <Home />} />
                 <Route path="/product/:handle" element={<Product />} />

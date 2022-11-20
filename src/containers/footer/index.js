@@ -7,6 +7,8 @@ import {
   Title,
   Divider,
   FooterForm,
+  FooterLinks,
+  FooterLinkTitle
 } from "./FooterElements";
 import { Link } from "react-router-dom";
 import Icons from "../../components/icons";
@@ -56,10 +58,13 @@ function Footer() {
           <input placeholder="Enter your email" type="email" />
           <button type="submit">Sign Up</button>
         </FooterForm>
-        <Title>Stay connected</Title>
+        <FooterLinks>
+          <FooterLinkTitle>Stay connected</FooterLinkTitle>
 
-        <Divider />
-        <Icons color="white" />
+          {/* <Divider /> */}
+          <Icons color="white" />
+        </FooterLinks>
+
       </FooterEmailSection>
       <SectionContainer>
         {footerContents.map((column, index) => (

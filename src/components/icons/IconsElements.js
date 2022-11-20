@@ -7,8 +7,7 @@ export const IconsContainer = styled.div`
   display: flex;
   align-items: flex-end;
   background: transparent;
-  padding-bottom: 1rem;
-  padding-left: 1.5rem;
+
 `;
 export const Icon = css`
   color: ${(props) => props.color};

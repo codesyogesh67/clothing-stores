@@ -8,6 +8,7 @@ export const FooterContainer = styled.div`
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
+  
 
   a {
     color: white;
@@ -22,7 +23,22 @@ export const Title = styled.h3`
   font-weight: 600;
   text-transform: uppercase;
   font-size: 0.8rem;
+  
+
 `;
+
+export const FooterLinks = styled.div`
+  display:flex;
+  align-items:center;
+ 
+  
+`
+export const FooterLinkTitle = styled.h3`
+font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+ 
+`
 
 export const FooterEmailSection = styled.div`
   width: 250px;
@@ -96,3 +112,4 @@ export const Section = styled.div`
     margin-bottom: 0;
   }
 `;
+

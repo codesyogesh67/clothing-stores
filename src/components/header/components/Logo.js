@@ -7,7 +7,7 @@ function Logo() {
     <LogoContainer>
       <div>
         <Link to="/">
-          <Text>T-Styles</Text>
+          <Text>T-StyleS</Text>
         </Link>
       </div>
     </LogoContainer>

@@ -10,7 +10,8 @@ import { selectUser } from '../features/auth/authSlice'
 import { useSelector } from 'react-redux'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { loadStripe } from '@stripe/stripe-js'
-import { AnimatePresence } from "framer-motion/dist/framer-motion"
+import { AnimatePresence } from "framer-motion"
+
 
 function AnimatedRoutes() {
     const user = useSelector(selectUser)

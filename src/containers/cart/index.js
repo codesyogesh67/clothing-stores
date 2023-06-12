@@ -32,7 +32,7 @@ import { useNavigate } from "react-router";
 import OrderSummary from "../../components/cart/OrderSummary";
 import RemoveButton from "../../components/cart/RemoveButton";
 import ProductQuantity from "../../components/cart/ProductQuantity";
-import { motion } from "framer-motion/dist/framer-motion"
+import { motion } from "framer-motion"
 
 function Cart() {
   const cartList = useSelector(selectCart);

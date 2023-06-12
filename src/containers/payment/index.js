@@ -13,7 +13,7 @@ import {
 import PaymentSummary from "../../components/payment/PaymentSummary";
 import { Discover, MasterCard, AmericanExpress, Visa } from "../../images";
 import PaymentForm from "../../components/payment/PaymentForm";
-import { motion } from "framer-motion/dist/framer-motion"
+import { motion } from "framer-motion"
 
 function Payment() {
   return (

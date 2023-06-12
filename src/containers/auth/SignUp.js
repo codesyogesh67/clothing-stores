@@ -17,7 +17,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../features/auth/authSlice";
-import { motion } from "framer-motion/dist/framer-motion"
+import { motion } from "framer-motion"
 
 
 function SignUp() {

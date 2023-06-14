@@ -29,6 +29,7 @@ export const Wrapper = styled.div`
   align-items: center;
   border-bottom: 1px solid #f2f0f0;
 
+
   @media only screen and (min-width:550px){
     padding: 1.2rem 1.5rem;
   }
@@ -66,6 +67,7 @@ export const Input = styled.input`
     background:#dee0df;
     padding: 0.6rem 1rem;
     display: block;
+    display:none;
 
     &:focus {
       outline: none;
@@ -148,6 +150,7 @@ background:none;
 export const LogoContainer = styled.div`
   flex: 1;
   text-align: center;
+
 `;
 export const Text = styled.span`
   text-transform: uppercase;

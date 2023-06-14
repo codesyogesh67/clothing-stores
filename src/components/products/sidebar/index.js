@@ -29,10 +29,8 @@ function Sidebar() {
 
     const [links, setLinks] = useState([]);
 
-    console.log("link headedr", linkHeader)
-    console.log("categorylinks", categoryLinks)
     useEffect(() => {
-        console.log("running useEffect")
+
         if (categoryLinks) {
             categoryLinks.filter(each => {
                 console.log("each.header", each.header)
@@ -53,7 +51,7 @@ function Sidebar() {
 
     }, [categoryLinks, linkHeader]);
 
-    console.log("links", links)
+
 
 
 

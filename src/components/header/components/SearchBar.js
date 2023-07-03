@@ -1,15 +1,12 @@
 import React from "react";
-import {
-  Input,
-  SearchBarContainer,
-  SearchFormContainer,
-
-} from "../HeaderElements";
+import styled from "styled-components";
+import SearchIcon from "@mui/icons-material/Search";
 
 import { useDispatch } from "react-redux";
 import { updateOpenModal } from "../../../features/extras/extrasSlice";
 import SearchModal from "./SearchModal";
 import { updateMobileView } from "../../../features/extras/extrasSlice";
+import { SearchBarContainer, SearchFormContainer, Input } from "../HeaderElements"
 
 function SearchBar() {
   const dispatch = useDispatch();

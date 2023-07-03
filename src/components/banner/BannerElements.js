@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 export const BannerContainer = styled.div`
+
 `;
 
 export const BannerWrapper = styled.div`
+
 
   display: flex;
   flex-direction:column;
@@ -19,7 +21,7 @@ export const BannerWrapper = styled.div`
 `;
 
 export const LeftCompartmentContainer = styled.div`
-flex:0.5;
+flex:1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,9 +72,10 @@ export const RightCompartmentContainer = styled.div`
   display: flex;
 align-items:center;
 justify-content:center;
-
-
- 
+height: calc(100vh - 80px);
+width: 100vw;
+position: relative;
+overflow: hidden;
 `;
 
 
@@ -84,6 +87,11 @@ export const SectionContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 10px;
+  width: 300vw;
+  height: 100%;
+  display: flex;
+  transition: all 1s ease;
+  
 `;
 export const SectionImageContainer = styled.div`
   max-height:270px;
@@ -102,8 +110,13 @@ export const SectionImageContainer = styled.div`
     background: #e1c8f7;
   }
 
-  img {
-    width: 100%;
+  // img {
+  //   width: 100%;
+  //   height: 100%;
+  //   object-fit: cover;
+  // }
+  img{
+    width: 100vw;
     height: 100%;
     object-fit: cover;
   }

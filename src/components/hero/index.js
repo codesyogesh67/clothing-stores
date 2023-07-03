@@ -3,6 +3,7 @@ import { Container, CategoryList, Main, SearchBar, ProductsList } from "./HeroEl
 import { useDispatch, useSelector } from "react-redux"
 import { selectDrawer, updateProductInfo, selectProducts, selectCategoryLinks } from '../../features/products/productsSlice';
 import { selectLinkHeader } from '../../features/links/linksSlice';
+import Slider from "../slider/Slider"
 
 
 function Hero() {
@@ -114,13 +115,14 @@ function Hero() {
 
                     </form>
                 </SearchBar>
-                <ProductsList>
-                    {/* {list.slice(0, 5).map(({ data: { imageUrl } }, idx) => (
+                {/* <ProductsList>
+                    {list.slice(0, 5).map(({ data: { imageUrl } }, idx) => (
                         <img src={imageUrl} alt="Image" />
-                    ))} */}
+                    ))}
                     <img src={list[currentImageIndex]?.data?.imageUrl} className={isTransitioning ? 'fade-in' : ''} alt="Product Image" />
 
-                </ProductsList>
+                </ProductsList> */}
+                <Slider />
             </Main>
 
         </Container>

@@ -8,6 +8,7 @@ import {
 } from "./HeaderElements";
 import Logo from "./components/Logo";
 import Drawer from "./components/Drawer";
+import Form from "./components/Form";
 import { IconButton } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import ModalBox from "./components/ModalBox";
@@ -35,8 +36,10 @@ function Header() {
     <HeaderContainer>
       <Wrapper>
         <SearchMobileIcon onClick={openSearchBar} />
-        <SearchBar />
+
         <Logo />
+        <SearchBar />
+        {/* <Form /> */}
         <HeaderLinks />
         <IconButton onClick={clickDrawer}>
           <HamburgerIcon />

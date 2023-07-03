@@ -17,7 +17,7 @@ export const HeaderContainer = styled.div`
   z-index: 999;
   background-color: white;
   box-shadow: 10px 10px 10px 1px rgba(237, 235, 235, 0.2);
-
+ 
 
 `;
 
@@ -28,7 +28,7 @@ export const Wrapper = styled.div`
   flex-direction: row;
   align-items: center;
   border-bottom: 1px solid #f2f0f0;
-
+  border:3px solid red;
 
   @media only screen and (min-width:550px){
     padding: 1.2rem 1.5rem;
@@ -43,6 +43,8 @@ export const Wrapper = styled.div`
 
 export const SearchBarContainer = styled.div`
   display: flex;
+  border:5px solid blue;
+  flex:1;
   
 `;
 
@@ -59,7 +61,7 @@ export const SearchMobileIcon = styled(SearchIcon)`
 export const SearchFormContainer = styled.form`
 `
 export const Input = styled.input`
-  display: none;
+  // display: none;
 
   @media only screen and (min-width: 768px) {
     border: none;
@@ -67,7 +69,7 @@ export const Input = styled.input`
     background:#dee0df;
     padding: 0.6rem 1rem;
     display: block;
-    display:none;
+    // display:none;
 
     &:focus {
       outline: none;
@@ -148,7 +150,7 @@ background:none;
 
 //logo
 export const LogoContainer = styled.div`
-  flex: 1;
+  // flex: 1;
   text-align: center;
 
 `;

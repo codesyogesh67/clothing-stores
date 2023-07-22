@@ -3,7 +3,7 @@ import SearchBar from "./components/SearchBar";
 import {
   HeaderContainer,
   Wrapper,
-  HamburgerIcon,
+
   SearchMobileIcon,
 } from "./HeaderElements";
 import Logo from "./components/Logo";
@@ -13,22 +13,21 @@ import { IconButton } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import ModalBox from "./components/ModalBox";
 import Navbar from "../navbar";
-import { updateOpenModal, updateMobileView, updateOpenDrawer, selectOpenDrawer } from "../../features/extras/extrasSlice";
+import { updateOpenModal, updateMobileView, updateOpenDrawer, selectOpenDrawer, selectSearchBar } from "../../features/extras/extrasSlice";
 import HeaderLinks from "./components/HeaderLinks";
 
 function Header() {
   const [openModalBox, setOpenModalBox] = useState(false);
   const dispatch = useDispatch();
   const openDrawer = useSelector(selectOpenDrawer)
+  const searchBar = useSelector(selectSearchBar);
 
   const openSearchBar = () => {
     dispatch(updateMobileView(true));
     dispatch(updateOpenModal(true));
   };
 
-  const clickDrawer = () => {
-    dispatch(updateOpenDrawer(true))
-  }
+
 
 
 
@@ -38,18 +37,16 @@ function Header() {
         <SearchMobileIcon onClick={openSearchBar} />
 
         <Logo />
-        <SearchBar />
+        {searchBar && <SearchBar />}
         {/* <Form /> */}
         <HeaderLinks />
-        <IconButton onClick={clickDrawer}>
-          <HamburgerIcon />
-        </IconButton>
+
 
         <ModalBox open={openModalBox} setOpen={setOpenModalBox} />
         {openDrawer && <Drawer />}
 
       </Wrapper>
-      <Navbar />
+      {/* <Navbar /> */}
 
 
 

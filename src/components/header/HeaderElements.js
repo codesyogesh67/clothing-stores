@@ -17,7 +17,8 @@ export const HeaderContainer = styled.div`
   z-index: 999;
   background-color: white;
   box-shadow: 10px 10px 10px 1px rgba(237, 235, 235, 0.2);
- 
+
+
 
 `;
 
@@ -26,9 +27,13 @@ export const Wrapper = styled.div`
   flex: 1;
   display: flex;
   flex-direction: row;
+  justify-content:space-between;
+ 
   align-items: center;
   border-bottom: 1px solid #f2f0f0;
-  border:3px solid red;
+
+
+
 
   @media only screen and (min-width:550px){
     padding: 1.2rem 1.5rem;
@@ -43,15 +48,25 @@ export const Wrapper = styled.div`
 
 export const SearchBarContainer = styled.div`
   display: flex;
-  border:5px solid blue;
+
   flex:1;
+  padding-left:20px;
+  max-width:300px;
+ 
   
 `;
 
 export const SearchMobileIcon = styled(SearchIcon)`
   display: block;
-  font-size: 1.5rem !important;
+  font-size: 1.8rem !important;
   cursor: pointer;
+ 
+  padding:0.3rem;
+  margin-right:15px;
+  background:var(--primary-color);
+  color:white;
+  border-radius:0 5px 5px 0;
+ 
 
   @media only screen and (min-width: 768px) {
     display: none !important;
@@ -59,16 +74,39 @@ export const SearchMobileIcon = styled(SearchIcon)`
 `;
 
 export const SearchFormContainer = styled.form`
+
+width:100%;
+display:flex;
+border:1px solid rgba(195, 199, 196,0.5);
+border-radius:4px;
+
+display:none;
+
+@media screen and (min-width:768px){
+  display:flex;
+}
+
+& .searchBar__icon{
+  border:none;
+  background:#e6c243;
+  color:white;
+  padding:0 10px;
+  display:flex;
+  align-items:center;
+ 
+}
 `
 export const Input = styled.input`
   // display: none;
 
   @media only screen and (min-width: 768px) {
-    border: none;
-    border-radius:15px;
-    background:#dee0df;
-    padding: 0.6rem 1rem;
+    border:none;
+    border-radius:4px;
+   
+    padding: 0.8rem 1rem;
     display: block;
+   
+    width:100%;
     // display:none;
 
     &:focus {
@@ -78,10 +116,12 @@ export const Input = styled.input`
 `;
 
 export const Icon = styled(SearchIcon)`
-  margin-right: 10px !important;
+ 
   color: #6d6d6e !important;
-  font-size: 1.2rem !important;
+  font-size: 1.4rem !important;
   cursor: pointer;
+  color:white !important;
+  
 `;
 
 export const SearchOptions = styled.div`
@@ -106,7 +146,9 @@ export const ModalContainer = styled.div`
   width: 100%;
   border: none;
 padding:0.2rem;
-background:white;
+background:transparent;
+
+
 
 
   @media only screen and (min-width: 768px) {
@@ -121,13 +163,13 @@ background:white;
 
 
 export const FormContainer = styled.form`
-
+  background:white;
 
   display: flex;
   align-items: center;
-  padding:0.6rem 1rem;
-  background:#d9dbda;
-  border-radius: 15px;
+  border:1px solid rgba(195, 199, 196,0.5);
+  border-radius:4px;
+  padding-left:1.2rem;
 
   @media only screen and (min-width: 768px) {
     border: 1px solid #dbdbdb;
@@ -136,6 +178,17 @@ export const FormContainer = styled.form`
       border: 1px solid black;
     }
   }
+
+  & button{
+    border:none;
+    background:#e6c243;
+    color:white;
+    
+    display:flex;
+    align-items:center;
+    padding:0.8rem 1rem;
+    
+  }
 `;
 
 
@@ -143,6 +196,7 @@ export const ModalInput = styled.input`
 width:100%;
 border:none;
 background:none;
+font-size:1rem;
 
 &:focus{
   outline:none;
@@ -152,6 +206,7 @@ background:none;
 export const LogoContainer = styled.div`
   // flex: 1;
   text-align: center;
+
 
 `;
 export const Text = styled.span`
@@ -164,22 +219,38 @@ export const Text = styled.span`
 
 //links
 export const HeaderLinksContainer = styled.div`
-  display: none;
  
 
-  @media only screen and (min-width: 550px) {
-    flex: 0.2;
-    display: flex;
-    justify-content: space-around;
-  }
+ display:flex;
+ 
+ 
+ 
+
+ 
 `;
+
+export const WrapperLinks = styled.div`
+display: none;
+justify-self:flex-end;
+@media only screen and (min-width: 687px) {
+  flex: 0.2;
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+ 
+
+}
+`
+
 export const PersonIcon = styled(PersonOutlineIcon)``;
 export const CartIcon = styled(ShoppingCartIcon)``;
 export const HomeLinkIcon = styled(HomeIcon)``;
 
 export const HamburgerIcon = styled(MenuIcon)`
-  @media only screen and (min-width: 550px) {
+  display:block;
+  @media only screen and (min-width: 687px) {
     display: none !important;
+   
   }
 `;
 

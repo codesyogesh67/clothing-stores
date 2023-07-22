@@ -15,7 +15,7 @@ import AnimatedRoutes from "./components/AnimatedRoutes";
 function App() {
   const dispatch = useDispatch();
   const [data, setData] = useState([])
-  console.log("secre clothing ", process.env.REACT_APP_APIKEY)
+
 
 
   useEffect(() => {

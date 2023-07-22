@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const CategoryList = styled.p`
 background:#e4f1f5;  
 // height:100%;
-flex:0.3;
+flex:0.4;
 padding:2rem;
 
 
@@ -32,9 +32,12 @@ padding:2rem;
 `
 
 export const Main = styled.div`
-flex:0.7;
+flex:1;
 display:flex;
-flex-direction:column;
+justify-content:center;
+padding:0.4rem;
+
+
 `
 
 export const SearchBar = styled.div`
@@ -70,8 +73,10 @@ justify-content:center;
 height:300px;
 margin:0.8rem 0;
 
+
 & img {
     object-fit:contain;
+    
 }
 
 & img .fade-in {

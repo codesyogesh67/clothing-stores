@@ -10,7 +10,8 @@ export const extrasSlice = createSlice({
         openDrawer: false,
         linkCategory: "",
         linkHeader: "",
-        message: ""
+        message: "",
+        searchBarStatus: false
     },
     reducers: {
 
@@ -28,11 +29,14 @@ export const extrasSlice = createSlice({
         },
         updateMessage: (state, action) => {
             state.message = action.payload
+        },
+        updateSearchBar: (state, action) => {
+            state.searchBarStatus = !state.searchBarStatus;
         }
     },
 });
 
-export const { updateOpenDrawer, updateMessage, updateMobileView, updateFilterData, updateOpenModal } = extrasSlice.actions;
+export const { updateOpenDrawer, updateSearchBar, updateMessage, updateMobileView, updateFilterData, updateOpenModal } = extrasSlice.actions;
 // export const selectLinkSection = (state) => state.links.linkSection;
 export const selectLinkCategory = (state) => state.extras.linkCategory;
 export const selectLinkHeader = (state) => state.extras.linkHeader;
@@ -42,5 +46,6 @@ export const selectOpenModal = (state) => state.extras.openModal;
 export const selectMobileView = (state) => state.extras.mobileView;
 export const selectOpenDrawer = (state) => state.extras.openDrawer;
 export const selectMessage = (state) => state.extras.message;
+export const selectSearchBar = (state) => state.extras.searchBarStatus;
 
 export default extrasSlice.reducer;

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Container, CategoryList, Main, SearchBar, ProductsList } from "./HeroElements"
 import { useDispatch, useSelector } from "react-redux"
-import { selectDrawer, updateProductInfo, selectProducts, selectCategoryLinks } from '../../features/products/productsSlice';
+import { selectDrawer, updateCategorySelected, updateProductInfo, selectProducts, selectCategoryLinks } from '../../features/products/productsSlice';
 import { selectLinkHeader } from '../../features/links/linksSlice';
 import Slider from "../slider/Slider"
+
+
+const categories = ['Custom Collection Tees', 'Funny Tees', 'Custom Couple Tees', 'Customizable Logo Tees', 'Custom Photo Tees', 'Vintage Tees', 'Custom Text Tees']
 
 
 function Hero() {
@@ -96,25 +99,27 @@ function Hero() {
 
 
 
-
+    const handleCategory = (category) => {
+        dispatch(updateCategorySelected(category))
+    }
 
     return (
         <Container>
             <CategoryList>
-                {links[0]?.categories.map((category, idx) => (
+                {/* {links[0]?.categories.map((category, idx) => (
                     <ul>
-                        <li>{category}</li>
+                        <li onClick={() => handleCategory(category)}>{category}</li>
+                    </ul>
+                ))} */}
+
+                {categories.map((category, idx) => (
+                    <ul>
+                        <li onClick={() => handleCategory(category)}>{category}</li>
                     </ul>
                 ))}
             </CategoryList>
             <Main>
-                <SearchBar>
-                    <form>
-                        <input placeholder="Search" />
-                        <button>Search</button>
 
-                    </form>
-                </SearchBar>
                 {/* <ProductsList>
                     {list.slice(0, 5).map(({ data: { imageUrl } }, idx) => (
                         <img src={imageUrl} alt="Image" />

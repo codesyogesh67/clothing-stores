@@ -80,16 +80,18 @@ function SearchModal() {
 
         <FormContainer>
           <ModalInput
-            placeholder="Search..."
+            placeholder="What are you looking for?"
             value={wordEntered}
             onChange={handleChange}
             autoFocus={true}
           />
           {wordEntered?.length === 0 ? (
-            <Icon />
+            <button> <Icon /></button>
+
           ) : (
               <CloseIcon onClick={closeFilterData} />
             )}
+
 
         </FormContainer>
 

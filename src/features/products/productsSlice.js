@@ -6,7 +6,8 @@ export const productsSlice = createSlice({
     products: [],
     productInfo: [],
     drawer: false,
-    categoryLinks: []
+    categoryLinks: [],
+    categorySelected: ""
 
   },
   reducers: {
@@ -22,6 +23,9 @@ export const productsSlice = createSlice({
     updateDrawer: (state, action) => {
       state.drawer = action.payload
     },
+    updateCategorySelected: (state, action) => {
+      state.categorySelected = action.payload;
+    }
 
   },
 });
@@ -30,12 +34,14 @@ export const {
   updateProducts,
   updateProductInfo,
   updateCategoryLinks,
-  updateDrawer
+  updateDrawer,
+  updateCategorySelected
 } = productsSlice.actions;
 export const selectProducts = (state) => state.products.products;
 export const selectDrawer = (state) => state.products.drawer;
 
 export const selectCategoryLinks = (state) => state.products.categoryLinks;
 export const selectProductInfo = (state) => state.products.productInfo;
+export const selectCategorySelected = (state) => state.products.categorySelected;
 
 export default productsSlice.reducer;

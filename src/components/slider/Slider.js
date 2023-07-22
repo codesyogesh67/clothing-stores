@@ -1,36 +1,56 @@
 
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
 import WestOutlinedIcon from "@mui/icons-material/WestOutlined";
 import "./Slider.css";
 import { SectionImage1, SectionImage2, SectionImage3 } from "../../images";
+import { useSelector } from "react-redux";
+import { selectCategorySelected, selectProducts } from "../../features/products/productsSlice";
 
 const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const category = useSelector(selectCategorySelected)
+    const products = useSelector(selectProducts)
+    const [imagesList, setImagesList] = useState([])
 
-    const data = [
-        "https://images.pexels.com/photos/1549200/pexels-photo-1549200.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        "https://images.pexels.com/photos/837140/pexels-photo-837140.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    ];
+
 
     const prevSlide = () => {
-        setCurrentSlide(currentSlide === 0 ? 2 : (prev) => prev - 1);
+        setCurrentSlide(currentSlide === 0 ? imagesList?.length : (prev) => prev - 1);
     };
     const nextSlide = () => {
-        setCurrentSlide(currentSlide === 2 ? 0 : (prev) => prev + 1);
+        setCurrentSlide(currentSlide === imagesList?.length ? 0 : (prev) => prev + 1);
     };
+
+
+    useEffect(() => {
+        const array = []
+        products.filter(each => {
+
+
+
+            if (each.data.subcategory === category) {
+
+                array.push(each.data)
+            }
+        })
+        setImagesList(array)
+    }, [category])
+
 
     return (
         <div className="slider">
-            <div className="container" style={{ transform: `translateX(-${currentSlide * 55}vw)` }}>
-                {/* <img src={data[0]} alt="" />
-                <img src={data[1]} alt="" />
-                <img src={data[2]} alt="" /> */}
-                <img src={SectionImage1} alt="Section Image" />
-                <img src={SectionImage2} alt="Section Image" />
-                <img src={SectionImage3} alt="Section Image" />
+
+            <div className="container" style={{ transform: `translateX(-${currentSlide * 27}vw)` }}>
+
+
+                {imagesList.map(({ name, imageUrl }) => (
+                    <div key={name}>
+                        <img src={imageUrl} alt="name" />
+                    </div>
+                ))}
+
             </div>
             <div className="icons">
                 <div className="icon" onClick={prevSlide}>
@@ -40,6 +60,7 @@ const Slider = () => {
                     <EastOutlinedIcon />
                 </div>
             </div>
+
         </div>
     );
 };

@@ -19,7 +19,10 @@ function SearchBar() {
   return (
     <SearchBarContainer>
       <SearchFormContainer>
-        <Input placeholder="Search..." onChange={showModal} onClick={showModal} />
+        <Input placeholder="What are you looking for?" />
+        <button className="searchBar__icon">
+          <SearchIcon />
+        </button>
       </SearchFormContainer>
       <SearchModal />
     </SearchBarContainer>

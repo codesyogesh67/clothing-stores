@@ -4,7 +4,9 @@ import {
     PersonIcon,
     CartIcon,
     HomeLinkIcon,
-    BoxContainer
+    BoxContainer,
+    HamburgerIcon,
+    WrapperLinks
 
 } from "../HeaderElements";
 import { selectUser, logout } from "../../../features/auth/authSlice";
@@ -12,7 +14,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import { IconButton, Badge, Modal, Box, Button, Typography } from '@mui/material';
 import { useState } from 'react';
+import SearchIcon from "@mui/icons-material/Search";
 import { selectCart } from '../../../features/cart/cartSlice';
+import { updateSearchBar, updateOpenDrawer } from '../../../features/extras/extrasSlice';
 
 
 
@@ -21,6 +25,7 @@ function HeaderLinks() {
     const [open, setOpen] = useState(false)
     const dispatch = useDispatch()
     const cart = useSelector(selectCart);
+
 
     const logoff = () => {
         dispatch(logout())
@@ -35,33 +40,54 @@ function HeaderLinks() {
         setOpen(false)
     }
 
+    const showSearchBar = () => {
+        dispatch(updateSearchBar())
+    }
+    const clickDrawer = () => {
+
+        dispatch(updateOpenDrawer(true))
+    }
+
     return (
+
         <HeaderLinksContainer>
-            {user === null ? (
-                <Link to="/signin">
+            <WrapperLinks>
+
+                <IconButton>
+
+                    <SearchIcon onClick={showSearchBar} />
+
+                </IconButton>
+
+                {user === null ? (
+                    <Link to="/signin">
+                        <IconButton>
+                            <PersonIcon />
+                        </IconButton>
+                    </Link>
+                ) : (
+                        <IconButton onClick={handleOpen}>
+                            <PersonIcon style={{ color: "green" }} />
+                        </IconButton>
+                    )}
+
+                <Link to="/cart">
                     <IconButton>
-                        <PersonIcon />
+                        <Badge badgeContent={user && cart.length} color="primary">
+                            <CartIcon />
+                        </Badge>
                     </IconButton>
                 </Link>
-            ) : (
-                    <IconButton onClick={handleOpen}>
-                        <PersonIcon style={{ color: "green" }} />
+
+                <Link to="/">
+                    <IconButton>
+                        <HomeLinkIcon />
                     </IconButton>
-                )}
-
-            <Link to="/cart">
-                <IconButton>
-                    <Badge badgeContent={user && cart.length} color="primary">
-                        <CartIcon />
-                    </Badge>
-                </IconButton>
-            </Link>
-
-            <Link to="/">
-                <IconButton>
-                    <HomeLinkIcon />
-                </IconButton>
-            </Link>
+                </Link>
+            </WrapperLinks>
+            <IconButton onClick={clickDrawer}>
+                <HamburgerIcon />
+            </IconButton>
 
             <Modal
                 open={open}

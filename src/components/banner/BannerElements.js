@@ -21,7 +21,7 @@ export const BannerWrapper = styled.div`
 `;
 
 export const LeftCompartmentContainer = styled.div`
-flex:1;
+flex:0.5;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -72,10 +72,11 @@ export const RightCompartmentContainer = styled.div`
   display: flex;
 align-items:center;
 justify-content:center;
-height: calc(100vh - 80px);
+// height: calc(100vh - 80px);
 width: 100vw;
 position: relative;
 overflow: hidden;
+
 `;
 
 
@@ -87,17 +88,21 @@ export const SectionContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 10px;
-  width: 300vw;
-  height: 100%;
+  align-items:center;
+  // width: 300vw;
+  // height: 100%;
   display: flex;
   transition: all 1s ease;
   
 `;
 export const SectionImageContainer = styled.div`
-  max-height:270px;
+  // max-height:270px;
 
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  height:200px;
+ 
 
   &:nth-child(1) {
     background: #f9d89c;
@@ -110,16 +115,20 @@ export const SectionImageContainer = styled.div`
     background: #e1c8f7;
   }
 
-  // img {
-  //   width: 100%;
-  //   height: 100%;
-  //   object-fit: cover;
-  // }
-  img{
-    width: 100vw;
+  @media only screen and (min-width: 1050px) {
+    height:300px;
+  }
+
+  img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
   }
+  // img{
+  //   width: 100vw;
+  //   height: 100%;
+  //   object-fit: cover;
+  // }
 
 `;
 

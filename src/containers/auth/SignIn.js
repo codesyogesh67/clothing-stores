@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Wrapper, Title } from "./AuthElements";
+import { createUserWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import {
   TextField,
   Button,
@@ -11,10 +12,11 @@ import {
 
   Alert,
 } from "@mui/material";
+import GoogleIcon from '@mui/icons-material/Google';
 import * as Yup from "yup";
 import { Formik, Field, Form } from "formik";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../firebase";
+import { auth, googleProvider } from "../../firebase";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../features/auth/authSlice";
 import { motion } from "framer-motion"
@@ -29,7 +31,13 @@ function SignIn() {
     password: "",
   };
 
-
+  const signInWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
 
   return (
@@ -127,10 +135,14 @@ function SignIn() {
 
                   />
                   <Box sx={{ width: 100, height: 20 }} />
+                  <Typography>
+                    <Link style={{ fontSize: "12px", float: "right", color: "#676b68", marginTop: "-10px" }} to="/forgotpassword">Forgot password?</Link>
+                  </Typography>
                   <FormControlLabel
                     control={<Checkbox name="checked" color="primary" />}
                     label="Rememeber me"
                   />
+
                   <Button
                     type="submit"
                     variant="contained"
@@ -141,9 +153,9 @@ function SignIn() {
                     Sign in
                   </Button>
                   <Box sx={{ width: 100, height: 20 }} />
-                  <Typography>
+                  {/* <Typography>
                     <Link to="/forgotpassword">Forgot password ?</Link>
-                  </Typography>
+                  </Typography> */}
                   <Typography>
                     {" "}
                     Do you have an account ?
@@ -153,6 +165,21 @@ function SignIn() {
                       </span>
                     </Link>
                   </Typography>
+
+
+                  <p style={{ textAlign: "center", color: "#7c807d", margin: "10px" }}>or</p>
+                  <div style={{ display: "flex", justifyContent: "Center", alignItems: "center" }}>
+                    <p style={{ color: "#676b68" }}>Sign in with  </p>
+
+                    <img onClick={signInWithGoogle} style={{ height: "25px", width: "25px", margin: "5px", cursor: "pointer" }}
+                      src="https://webstockreview.net/images/google-icon-png-17.png"
+                      alt="Goolge" />
+                  </div>
+
+                  {/* <GoogleIcon /> */}
+
+
+
                 </Wrapper>
               </Form>
             );

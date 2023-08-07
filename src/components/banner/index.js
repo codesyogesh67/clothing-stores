@@ -19,8 +19,8 @@ function Banner() {
       <BannerWrapper>
         <LeftCompartment />
 
-        {/* <RightCompartment /> */}
-        <ImageSlider />
+        <RightCompartment />
+        {/* <ImageSlider /> */}
 
       </BannerWrapper>
 

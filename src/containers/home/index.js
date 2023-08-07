@@ -13,7 +13,7 @@ function Home() {
   return (
     <Container as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 
-      <Hero />
+      {/* <Hero /> */}
       <Banner />
       {/* <Slider /> */}
       <FeaturedProducts />

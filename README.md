@@ -2,8 +2,13 @@ This App "Clothing Store" is ecommerce site which is fully functional and respon
 Following Features are included in this project:
 
  React JS 
+
+
+  ![Ecommerce](https://github.com/codesyogesh67/clothing-stores/assets/70290319/a2fb724f-ecc3-40b3-b433-ee67fea8d516)
  
  styled components for CSS styling
+
+
  
 React Redux
 

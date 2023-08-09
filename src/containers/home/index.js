@@ -8,6 +8,7 @@ import DealProduct from "../../components/home/DealProduct";
 import FeaturedProducts from "../../components/home/FeaturedProducts";
 import { motion } from "framer-motion"
 import Footer from "../footer";
+import Features from "../../components/features";
 
 function Home() {
   return (
@@ -16,6 +17,7 @@ function Home() {
       {/* <Hero /> */}
       <Banner />
       {/* <Slider /> */}
+      <Features />
       <FeaturedProducts />
       <DealProduct />
 

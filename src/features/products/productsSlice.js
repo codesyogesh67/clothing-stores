@@ -7,7 +7,8 @@ export const productsSlice = createSlice({
     productInfo: [],
     drawer: false,
     categoryLinks: [],
-    categorySelected: ""
+    categorySelected: "",
+    categories: []
 
   },
   reducers: {
@@ -25,6 +26,9 @@ export const productsSlice = createSlice({
     },
     updateCategorySelected: (state, action) => {
       state.categorySelected = action.payload;
+    },
+    updateCategoriesData: (state, action) => {
+      state.categories = action.payload
     }
 
   },
@@ -35,12 +39,14 @@ export const {
   updateProductInfo,
   updateCategoryLinks,
   updateDrawer,
-  updateCategorySelected
+  updateCategorySelected,
+  updateCategoriesData
 } = productsSlice.actions;
 export const selectProducts = (state) => state.products.products;
 export const selectDrawer = (state) => state.products.drawer;
 
 export const selectCategoryLinks = (state) => state.products.categoryLinks;
+export const selectCategory = (state) => state.products.categories;
 export const selectProductInfo = (state) => state.products.productInfo;
 export const selectCategorySelected = (state) => state.products.categorySelected;
 

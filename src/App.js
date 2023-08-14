@@ -4,6 +4,7 @@ import "./App.css";
 import {
   updateProducts,
   updateCategoryLinks,
+  updateCategoriesData
 } from "./features/products/productsSlice";
 import { useDispatch } from "react-redux";
 import { login } from "./features/auth/authSlice";
@@ -15,12 +16,19 @@ import AnimatedRoutes from "./components/AnimatedRoutes";
 function App() {
   const dispatch = useDispatch();
   const [data, setData] = useState([])
+  const [categoriesData, setCategoriesData] = useState([])
 
 
 
   useEffect(() => {
     db.collection("productsList").onSnapshot(snapshot => {
       setData(snapshot.docs.map(doc => ({
+        id: doc.id,
+        data: doc.data()
+      })))
+    })
+    db.collection("categories").onSnapshot(snapshot => {
+      setCategoriesData(snapshot.docs.map(doc => ({
         id: doc.id,
         data: doc.data()
       })))
@@ -33,7 +41,8 @@ function App() {
   useEffect(() => {
 
     dispatch(updateProducts(data));
-    dispatch(updateCategoryLinks(categoryLinks));
+    // dispatch(updateCategoryLinks(categoryLinks));
+    dispatch(updateCategoriesData(categoriesData))
   });
 
   useEffect(() => {

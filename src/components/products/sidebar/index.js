@@ -33,7 +33,7 @@ function Sidebar() {
 
         if (categoryLinks) {
             categoryLinks.filter(each => {
-                console.log("each.header", each.header)
+
 
                 if (each.header === linkHeader) {
 
